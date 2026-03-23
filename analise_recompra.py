@@ -450,6 +450,8 @@ insights = [
 for i, insight in enumerate(insights, 1):
     print(f"\n  [{i:02d}] {insight}")
 
+df_canal["canal"].value_counts()
+
 print(f"\n{'=' * 62}")
 print(" Análise exploratória concluída.")
 print(f" Gráficos salvos: fig_01 a fig_07")

@@ -24,7 +24,7 @@ PATH_PRODUTOS = "base_produtos.csv"
 PATH_FAMILIAS = "familias.csv"
 
 # Separador dos CSVs (ajuste se necessário: ";" ou ",")
-SEP = ","
+SEP = ";"
 
 # =============================================================================
 # 1. LEITURA DOS ARQUIVOS
@@ -38,9 +38,9 @@ df_pedidos  = pd.read_csv(PATH_PEDIDOS,  sep=SEP, dtype=str)
 df_produtos = pd.read_csv(PATH_PRODUTOS, sep=SEP, dtype=str)
 df_familias = pd.read_csv(PATH_FAMILIAS, sep=SEP, dtype=str)
 
-print(f"  base_pedidos  → {df_pedidos.shape[0]:>7,} linhas | {df_pedidos.shape[1]} colunas")
-print(f"  base_produtos → {df_produtos.shape[0]:>7,} linhas | {df_produtos.shape[1]} colunas")
-print(f"  familias      → {df_familias.shape[0]:>7,} linhas | {df_familias.shape[1]} colunas")
+print(f"  base_pedidos  -> {df_pedidos.shape[0]:>7,} linhas | {df_pedidos.shape[1]} colunas")
+print(f"  base_produtos -> {df_produtos.shape[0]:>7,} linhas | {df_produtos.shape[1]} colunas")
+print(f"  familias      -> {df_familias.shape[0]:>7,} linhas | {df_familias.shape[1]} colunas")
 
 # =============================================================================
 # 2. LIMPEZA E TIPAGEM — BASE DE PEDIDOS
@@ -146,7 +146,7 @@ print(
 # =============================================================================
 
 print("\n" + "=" * 60)
-print("ETAPA 5 — Agrupamento de produtos → nível de pedido")
+print("ETAPA 5 — Agrupamento de produtos -> nível de pedido")
 print("=" * 60)
 
 # ── 5a. Lista de categorias únicas por pedido (como string separada por |)
@@ -180,7 +180,7 @@ print(f"  Pedidos únicos na base de produtos: {len(df_produtos_pedido):>7,}")
 # =============================================================================
 
 print("\n" + "=" * 60)
-print("ETAPA 6 — Merge base_pedidos ↔ base_produtos")
+print("ETAPA 6 — Merge base_pedidos <-> base_produtos")
 print("=" * 60)
 
 df_final = df_pedidos.merge(
@@ -210,7 +210,7 @@ df_final = df_final.sort_values(
     na_position="last",
 ).reset_index(drop=True)
 
-print("  Dados ordenados por cli_document ↑ e data ↑")
+print("  Dados ordenados por cli_document ^ e data ^")
 
 # =============================================================================
 # 8. VARIÁVEIS DE JORNADA — NÍVEL DE PEDIDO
@@ -354,4 +354,4 @@ for col in df_clientes.columns:
 
 df_final.to_csv("df_final.csv", index=False, sep=",", encoding="utf-8-sig")
 df_clientes.to_csv("df_clientes.csv", index=False, sep=",", encoding="utf-8-sig")
-print("\n  ✅ Arquivos exportados com sucesso.")
+print("\n  Arquivos exportados com sucesso.")

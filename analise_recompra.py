@@ -47,13 +47,16 @@ plt.rcParams.update({
     "axes.spines.right": False,
 })
 
+df_final = pd.read_csv("df_final.csv")
+df_clientes = pd.read_csv("df_clientes.csv")
+
 # ── Separador visual para prints ─────────────────────────────────────────────
 SEP = "─" * 62
 
 def titulo(texto):
-    print(f"\n{'═' * 62}")
+    print(f"\n{'=' * 62}")
     print(f"  {texto}")
-    print(f"{'═' * 62}")
+    print(f"{'=' * 62}")
 
 def subtitulo(texto):
     print(f"\n{SEP}")
@@ -412,34 +415,34 @@ mult_monetario         = media_monetario_rec / media_monetario_norec if media_mo
 
 # ── Impressão dos insights ────────────────────────────────────────────────────
 insights = [
-    f"📌  {taxa_recompra:.1f}% dos clientes realizaram ao menos uma segunda compra.",
+    f" - {taxa_recompra:.1f}% dos clientes realizaram ao menos uma segunda compra.",
 
-    f"⏱   A janela mais crítica de recompra é '{faixa_pico}': "
+    f" -  A janela mais crítica de recompra é '{faixa_pico}': "
     f"mais clientes retornam nessa faixa de tempo.",
 
-    f"⏱   {pct_30d:.0f}% das recompras ocorrem nos primeiros 30 dias após a 1ª compra.",
+    f" - {pct_30d:.0f}% das recompras ocorrem nos primeiros 30 dias após a 1ª compra.",
 
-    f"⏱   Aproximadamente {pct_90d:.0f}% das recompras ocorrem dentro de 90 dias. "
+    f" - Aproximadamente {pct_90d:.0f}% das recompras ocorrem dentro de 90 dias. "
     f"Ações de reativação após esse período tendem a ser menos eficazes.",
 
-    f"💰  Clientes que recompraram gastam em média "
+    f" - Clientes que recompraram gastam em média "
     f"R$ {media_monetario_rec:,.2f} vs R$ {media_monetario_norec:,.2f} "
     f"({mult_monetario:.1f}x mais) dos que não recompraram.",
 
-    f"🛍   A categoria com maior taxa de recompra é '{cat_top1}' "
+    f" - A categoria com maior taxa de recompra é '{cat_top1}' "
     f"({taxa_cat_t1:.1f}%). Clientes que compram este produto têm maior chance de retornar.",
 
-    f"🛍   A categoria com menor taxa de recompra é '{cat_bot1}' "
+    f" - A categoria com menor taxa de recompra é '{cat_bot1}' "
     f"({taxa_cat_b1:.1f}%). Pode exigir ações específicas de retenção.",
 
-    f"📡  O canal com maior taxa de recompra é '{melhor_canal}' "
+    f" - O canal com maior taxa de recompra é '{melhor_canal}' "
     f"({taxa_melhor_canal:.1f}%), sugerindo que clientes adquiridos por esse canal "
     f"têm maior fidelização.",
 
-    f"📡  O canal com menor taxa de recompra é '{pior_canal}' "
+    f" - O canal com menor taxa de recompra é '{pior_canal}' "
     f"({taxa_pior_canal:.1f}%). Avaliar estratégias de nutrição pós-venda para esse canal.",
 
-    f"🎯  Recomendação: focar campanhas de reativação na janela de '{faixa_pico}', "
+    f" - Recomendação: focar campanhas de reativação na janela de '{faixa_pico}', "
     f"priorizando clientes adquiridos via '{pior_canal}' "
     f"e na categoria '{cat_bot1}' para elevar a taxa de recompra.",
 ]
@@ -447,7 +450,7 @@ insights = [
 for i, insight in enumerate(insights, 1):
     print(f"\n  [{i:02d}] {insight}")
 
-print(f"\n{'═' * 62}")
-print("  Análise exploratória concluída.")
-print(f"  Gráficos salvos: fig_01 a fig_07")
-print(f"{'═' * 62}\n")
+print(f"\n{'=' * 62}")
+print(" Análise exploratória concluída.")
+print(f" Gráficos salvos: fig_01 a fig_07")
+print(f"{'=' * 62}\n")

@@ -447,6 +447,16 @@ print(resumo[[
     "frequencia_media","monetario_medio","taxa_recompra"
 ]].to_string())
 
+
+
 print(f"\nColunas adicionadas ao df_clientes: cluster_kmeans - cluster_dbscan - nome_cluster")
 print(f"Gráficos salvos: elbow_silhouette - scatter_freq_monetario - boxplots_clusters")
 print(f"                    distribuicao_clusters - heatmap_clusters - pca_clusters - dbscan_outliers")
+
+# =============================================================================
+# SALVAR BASE FINAL COM CLUSTERS
+# =============================================================================
+
+df_clientes.to_csv("df_clientes.csv", index=False)
+
+print("\nBase df_clientes atualizada e salva com clusters!")
